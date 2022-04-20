@@ -37,7 +37,7 @@ params = {'tweet.fields': 'text'}
 # Subsequent runs
 # Import Notes data
 dirname = os.path.dirname(__file__)
-notes = pd.read_csv(dirname + '/data/notes-with-tweet-text.csv', header=0)
+notes = pd.read_csv(dirname + '/../data/notes-with-tweet-text.csv', header=0)
 
 # Fetch and store the text of every Tweet in notes
 for idx, row in notes[notes['apiCalled'] == False].iterrows():
@@ -46,7 +46,7 @@ for idx, row in notes[notes['apiCalled'] == False].iterrows():
     # Sleep while rate limit is reached
     while 'title' in response.keys() and response['title'] == 'Too Many Requests':
         print('sleeping')
-        notes.to_csv(dirname + '/data/notes-with-tweet-text.csv')
+        notes.to_csv(dirname + '../data/notes-with-tweet-text.csv')
         time.sleep(900)
         response = get_tweet(row['tweetId'], headers, params)
         
@@ -63,4 +63,4 @@ for idx, row in notes[notes['apiCalled'] == False].iterrows():
     # Mark the row as called
     notes.loc[idx, 'apiCalled'] = True
 
-notes.to_csv('/data/notes-with-tweet-text.csv')
+notes.to_csv('../data/notes-with-tweet-text.csv')
