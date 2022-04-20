@@ -1,4 +1,4 @@
-# Truthful AI Alignment Project
+# Truth on Twitter
 
 You can read more about our work here:
 * [Project Proposal](https://docs.google.com/document/d/1ZS8ojOtbh2q_s8jRA12E9GrzlCusC8JNIegEOnWvj1Y/edit?usp=sharing)
