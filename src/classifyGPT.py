@@ -102,6 +102,7 @@ test['tweetText'] = x_test
 test['humanLabel'] = y_test
 test['gptTrue'] = test['gptFalse'] = test['gptUnknown'] = None
 
+# Check indexing on loop
 for i in range(len(x_test)):
     print(f'{i} of {len(x_test)}')
     label_probs = classify_gpt(x_test[i], labels)
@@ -111,39 +112,3 @@ for i in range(len(x_test)):
 
     if i % 100 == 0:
         test.to_csv(dirname + '/../data/test-gpt3.csv', index=False)
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-# logit_bias = {str(first_token): 100 for first_token in first_token_to_label}
-
-# # Query the /classification endpoint with logit_bias
-# result = openai.Classification.create(
-#     file="file-hRsoFZ4J3dNoiTeudHesgPoh",
-#     query="movie is very good",
-#     search_model="ada",
-#     model="curie",
-#     max_examples=10,
-#     logit_bias=logit_bias,
-# )
-
-
-
-
-
-
-
-
-
-
-
